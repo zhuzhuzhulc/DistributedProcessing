@@ -10,6 +10,13 @@ func main(){
 		return
 	}
 	configfile := os.Args[1]
-	var configs = ReadConfig(configfile)
-	println(configs.nodeName)
+	var configs NodeList = ReadConfig(configfile)
+	println(configs.Nodes[0].NodeName)
+
+}
+
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
 }
