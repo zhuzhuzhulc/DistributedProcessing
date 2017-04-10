@@ -3,7 +3,8 @@ package main
 import (
 	"os"
 	"io/ioutil"
-	"github.com/BurntSushi/toml"
+	_ "github.com/zeromq/goczmq"
+	"github.com/zeromq/goczmq"
 )
 
 type NodeList struct{
@@ -60,5 +61,7 @@ func ReadConfig(configfile string) NodeList {
 	nodes.Nodes = []NodeInfo{alice, bob, cat, deb}
 	return nodes
 }
-
+func connect(){
+	router, err := goczmq.NewRouter("tcp://*:5555")
+}
 
